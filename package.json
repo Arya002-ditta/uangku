@@ -1,0 +1,20 @@
+
+{
+    "name": "keuanganku",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Aplikasi pengelola keuangan harian dan bulanan",
+    "scripts": {
+      "android:add": "cap add android",
+      "android:sync": "cap sync android",
+      "android:open": "cap open android"
+    },
+    "dependencies": {
+      "@capacitor/core": "^7.0.0"
+    },
+    "devDependencies": {
+      "@capacitor/cli": "^7.0.0",
+      "@capacitor/android": "^7.0.0"
+    }
+  }
+  

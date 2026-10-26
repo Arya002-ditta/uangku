@@ -1,0 +1,486 @@
+
+:root {
+  --bg: #F0F9FF;
+  --panel: #FFFFFF;
+  --panel-light: #E0F2FE;
+  --text: #0F172A;
+  --muted: #64748B;
+  --green: #0284C7;
+  --red: #ff0000;
+  --border: #BAE6FD;
+  --blue: #38BDF8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 95px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 20px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  color: #0284C7;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 25px;
+  margin: 5px 0 0;
+  color: var(--text);
+}
+
+h1 span {
+  color: #0284C7;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--text);
+}
+
+h3 {
+  font-size: 15px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+main {
+  max-width: 650px;
+  margin: auto;
+  padding: 20px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: appear 0.2s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.welcome h2 {
+  margin: 5px 0;
+}
+
+.welcome input {
+  width: 145px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Kartu saldo utama */
+.balance-card {
+  background: linear-gradient(135deg, #0284C7, #38BDF8);
+  color: #FFFFFF;
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.16);
+}
+
+.balance-card p {
+  margin: 0;
+  color: #F0F9FF;
+}
+
+.balance-card h2 {
+  font-size: 30px;
+  color: #FFFFFF;
+  overflow-wrap: anywhere;
+  margin: 13px 0 20px;
+}
+
+.balance-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #E0F2FE;
+}
+
+/* Ringkasan pemasukan dan pengeluaran */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.summary-card,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 17px;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.06);
+}
+
+.summary-card span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.summary-card h3 {
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+
+.income h3,
+.positive {
+  color: #0284C7;
+}
+
+.expense h3,
+.negative {
+  color: #EA580C;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 26px 0 14px;
+}
+
+.section-heading h3 {
+  margin: 0;
+}
+
+.text-btn {
+  background: none;
+  border: 0;
+  color: #0284C7;
+}
+
+.text-btn:hover {
+  color: #0369A1;
+}
+
+/* Tombol ikon */
+.icon-btn {
+  border: 1px solid var(--border);
+  background: #FFFFFF;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 20px;
+}
+
+.icon-btn:hover {
+  background: var(--panel-light);
+}
+
+/* Label formulir */
+label {
+  display: block;
+  margin: 17px 0 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Input dan dropdown */
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  background: #FFFFFF;
+  border: 1px solid #BAE6FD;
+  border-radius: 10px;
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder {
+  color: #94A3B8;
+}
+
+input:focus,
+select:focus {
+  border-color: #0284C7;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+/* Tombol formulir */
+.primary-btn,
+.secondary-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 11px;
+  font-weight: bold;
+}
+
+.primary-btn {
+  background: #0284C7;
+  color: #FFFFFF;
+  border: 1px solid #0284C7;
+}
+
+.primary-btn:hover {
+  background: #0369A1;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: #E0F2FE;
+  color: #075985;
+  border: 1px solid #BAE6FD;
+}
+
+.secondary-btn:hover {
+  background: #BAE6FD;
+}
+
+/* Daftar transaksi */
+.transaction-list {
+  display: grid;
+  gap: 10px;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 13px;
+  box-shadow: 0 3px 10px rgba(56, 189, 248, 0.04);
+}
+
+.tx-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 18px;
+}
+
+.tx-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.tx-details strong,
+.tx-details small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.tx-details small {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.tx-right {
+  text-align: right;
+  max-width: 45%;
+}
+
+.tx-amount {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.delete-btn {
+  margin-top: 7px;
+  background: transparent;
+  color: #EA580C;
+  border: 0;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  color: #C2410C;
+}
+
+/* Laporan keuangan */
+.report-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.report-row span {
+  color: var(--muted);
+}
+
+.report-row strong {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.report-row.highlight {
+  color: #0284C7;
+  border-bottom: 0;
+}
+
+/* Hasil kalkulator gaji */
+.salary-result {
+  margin-top: 22px;
+  padding: 18px;
+  text-align: center;
+  border-radius: 14px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+}
+
+.salary-result h2 {
+  color: #0284C7;
+  overflow-wrap: anywhere;
+}
+
+/* Navigasi bawah */
+.bottom-nav {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border);
+  padding: 10px 4px max(10px, env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(2, 132, 199, 0.07);
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  color: #64748B;
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.nav-btn span {
+  font-size: 20px;
+}
+
+.nav-btn.active {
+  color: #0284C7;
+}
+
+.nav-btn.active span {
+  color: #0284C7;
+}
+
+.nav-btn:hover {
+  background: #F0F9FF;
+}
+
+/* Tampilan ketika belum ada transaksi */
+.empty-state {
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--muted);
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Tampilan layar besar */
+@media (min-width: 700px) {
+  body {
+    padding-bottom: 30px;
+  }
+
+  .bottom-nav {
+    position: sticky;
+    max-width: 650px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+  }
+}
+
+/* Tampilan HP */
+@media (max-width: 380px) {
+  main {
+    padding: 14px;
+  }
+
+  .topbar {
+    padding: 18px 14px;
+  }
+
+  .balance-card {
+    padding: 20px;
+  }
+
+  .summary-grid {
+    gap: 8px;
+  }
+
+  .summary-card {
+    padding: 12px;
+  }
+
+  .nav-btn {
+    padding: 6px 5px;
+    font-size: 10px;
+  }
+}

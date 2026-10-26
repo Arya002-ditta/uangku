@@ -1,0 +1,20 @@
+
+{
+    "name": "KeuanganKu",
+    "short_name": "KeuanganKu",
+    "description": "Aplikasi pengelola keuangan harian",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#101827",
+    "theme_color": "#101827",
+    "icons": [
+      {
+        "src": "./logo.jpg",
+        "sizes": "512x512",
+        "type": "image/jpg",
+        "purpose": "any"
+      }
+    ]
+  }
+  

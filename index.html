@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+
+  <title>KeuanganKu</title>
+
+  <!-- LOGO WEBSITE -->
+  <link rel="icon" type="image/jpg" href="./logo.jpg">
+
+  <!-- LOGO SAAT DITAMBAHKAN KE LAYAR UTAMA HP -->
+  <link rel="apple-touch-icon" href="./logo.jpg">
+
+  <!-- PENGATURAN APLIKASI WEB -->
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">FINANCIAL MANAGER</p>
+      <h1>Keuangan<span>Ku.</span></h1>
+    </div>
+    <button id="resetBtn" class="icon-btn" title="Reset data"
+      aria-label="Reset data">↻</button>
+  </header>
+
+  <main>
+    <section id="dashboard" class="page active">
+      <div class="welcome">
+        <div>
+          <p class="muted">Ringkasan keuangan</p>
+          <h2 id="greeting">Keuangan kamu</h2>
+        </div>
+        <input type="month" id="monthFilter" aria-label="Pilih bulan">
+      </div>
+
+      <div class="balance-card">
+        <p>Total saldo keseluruhan</p>
+        <h2 id="totalBalance">Rp0</h2>
+        <div class="balance-line">
+          <span>Saldo = pemasukan - pengeluaran</span>
+          <span>●</span>
+        </div>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card income">
+          <span>↙ Pemasukan bulan ini</span>
+          <h3 id="totalIncome">Rp0</h3>
+        </div>
+        <div class="summary-card expense">
+          <span>↗ Pengeluaran bulan ini</span>
+          <h3 id="totalExpense">Rp0</h3>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <h3>Transaksi terbaru</h3>
+        <button class="text-btn" data-page="transactions">Lihat semua</button>
+      </div>
+      <div id="recentTransactions" class="transaction-list"></div>
+    </section>
+
+    <section id="transactions" class="page">
+      <h2>Catat transaksi</h2>
+      <p class="muted">Catat setiap uang masuk dan keluar.</p>
+
+      <form id="transactionForm" class="panel">
+        <label for="type">Jenis transaksi</label>
+        <select id="type" required>
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+
+        <label for="amount">Nominal (Rp)</label>
+        <input id="amount" type="number" min="1" step="1"
+          placeholder="Contoh: 150000" required>
+
+        <label for="category">Kategori</label>
+        <select id="category" required>
+          <option>Gaji</option>
+          <option>Penjualan</option>
+          <option>Modal usaha</option>
+          <option>Bonus</option>
+          <option>Makanan</option>
+          <option>Transportasi</option>
+          <option>Belanja</option>
+          <option>Tagihan</option>
+          <option>Operasional usaha</option>
+          <option>Lainnya</option>
+        </select>
+
+        <label for="description">Keterangan</label>
+        <input id="description" type="text" maxlength="120"
+          placeholder="Contoh: penjualan hari ini">
+
+        <label for="date">Tanggal</label>
+        <input id="date" type="date" required>
+
+        <button class="primary-btn" type="submit">+ Simpan transaksi</button>
+      </form>
+
+      <div class="section-heading">
+        <h3>Semua transaksi</h3>
+        <select id="listFilter" aria-label="Filter transaksi">
+          <option value="all">Semua</option>
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+      </div>
+      <div id="allTransactions" class="transaction-list"></div>
+    </section>
+
+    <section id="reports" class="page">
+      <h2>Laporan keuangan</h2>
+      <p class="muted">Pilih bulan untuk melihat hasil usaha atau keuangan.</p>
+
+      <div class="panel">
+        <label for="reportMonth">Periode laporan</label>
+        <input type="month" id="reportMonth">
+        <div class="report-row">
+          <span>Total pemasukan</span>
+          <strong id="reportIncome">Rp0</strong>
+        </div>
+        <div class="report-row">
+          <span>Total pengeluaran</span>
+          <strong id="reportExpense">Rp0</strong>
+        </div>
+        <div class="report-row highlight">
+          <span>Selisih bulan ini</span>
+          <strong id="reportNet">Rp0</strong>
+        </div>
+        <p id="reportNote" class="muted"></p>
+        <button id="exportBtn" class="secondary-btn">
+          Unduh laporan CSV
+        </button>
+      </div>
+
+      <h3>Rincian kategori</h3>
+      <div id="categoryReport" class="panel"></div>
+    </section>
+
+    <section id="salary" class="page">
+      <h2>Kalkulator gaji</h2>
+      <p class="muted">Hitung estimasi gaji bersih bulanan.</p>
+
+      <form id="salaryForm" class="panel">
+        <label for="baseSalary">Gaji pokok (Rp)</label>
+        <input id="baseSalary" type="number" min="0" step="1"
+          value="0" required>
+
+        <label for="bonus">Bonus / tunjangan (Rp)</label>
+        <input id="bonus" type="number" min="0" step="1"
+          value="0" required>
+
+        <label for="deduction">Potongan (Rp)</label>
+        <input id="deduction" type="number" min="0" step="1"
+          value="0" required>
+
+        <button class="primary-btn" type="submit">Hitung gaji</button>
+
+        <div class="salary-result">
+          <p>Estimasi gaji bersih</p>
+          <h2 id="netSalary">Rp0</h2>
+          <p class="muted">Gaji pokok + bonus - potongan</p>
+        </div>
+
+        <button id="saveSalary" type="button" class="secondary-btn">
+          Simpan sebagai pemasukan
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigasi utama">
+    <button class="nav-btn active" data-page="dashboard">
+      <span>⌂</span>Beranda
+    </button>
+    <button class="nav-btn" data-page="transactions">
+      <span>＋</span>Transaksi
+    </button>
+    <button class="nav-btn" data-page="reports">
+      <span>▤</span>Laporan
+    </button>
+    <button class="nav-btn" data-page="salary">
+      <span>Rp</span>Gaji
+    </button>
+  </nav>
+
+  <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
